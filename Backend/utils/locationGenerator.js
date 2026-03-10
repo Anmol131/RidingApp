@@ -70,3 +70,8 @@ exports.calculateFare = (distance) => {
   
   return Math.round(baseFare + (distance * perKmRate));
 };
+
+// Get all available locations
+exports.getAllLocations = () => {
+  return kathmanduLocations;
+};

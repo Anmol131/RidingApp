@@ -26,12 +26,17 @@ export const userAPI = {
 };
 
 export const rideAPI = {
-  getRandomLocations: () => api.get('/rides/random-locations'),
   createRide: (data) => api.post('/rides', data),
   getRides: () => api.get('/rides'),
   getRide: (id) => api.get(`/rides/${id}`),
   updateRide: (id, data) => api.put(`/rides/${id}`, data),
   cancelRide: (id) => api.put(`/rides/${id}`, { status: 'cancelled' }),
+};
+
+export const locationAPI = {
+  getAllLocations: () => api.get('/locations'),
+  seedLocations: () => api.post('/locations/seed'),
+  calculateFare: (pickupId, dropoffId) => api.get(`/locations/calculate-fare?pickupId=${pickupId}&dropoffId=${dropoffId}`),
 };
 
 export const feedbackAPI = {

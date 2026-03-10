@@ -20,12 +20,14 @@ const userRoutes = require('./routes/userRoutes');
 const rideRoutes = require('./routes/rideRoute');
 const riderRoutes = require('./routes/riderRoutes');
 const feedbackRoutes = require('./routes/feedbackRoutes');
+const locationRoutes = require('./routes/locationRoutes');
 
 // Register Routes
 app.use('/api/users', userRoutes);
 app.use('/api/rides', rideRoutes);
 app.use('/api/riders', riderRoutes);
 app.use('/api/feedbacks', feedbackRoutes);
+app.use('/api/locations', locationRoutes);
 
 const { Server } = require('socket.io');
 const io = new Server(server, {

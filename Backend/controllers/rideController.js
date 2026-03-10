@@ -1,5 +1,4 @@
 const Ride = require("../models/Ride");
-const { getRandomRideLocations, calculateDistance, calculateFare } = require("../utils/locationGenerator");
 
 // CREATE (book ride)
 exports.createRide = async (req, res) => {
@@ -92,32 +91,6 @@ exports.deleteRide = async (req, res) => {
   } catch (error) {
     res.status(500).json({ 
       message: "Error deleting ride", 
-      error: error.message 
-    });
-  }
-};
-
-// GET RANDOM LOCATIONS (for demo)
-exports.getRandomLocations = (req, res) => {
-  try {
-    const { pickup, dropoff } = getRandomRideLocations();
-    const distance = calculateDistance(
-      pickup.lat, 
-      pickup.lng, 
-      dropoff.lat, 
-      dropoff.lng
-    );
-    const fare = calculateFare(distance);
-
-    res.json({
-      pickup,
-      dropoff,
-      distance,
-      estimatedFare: fare
-    });
-  } catch (error) {
-    res.status(500).json({ 
-      message: "Error generating locations", 
       error: error.message 
     });
   }

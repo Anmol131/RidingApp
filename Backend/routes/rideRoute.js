@@ -6,12 +6,8 @@ const {
   getRides,
   getRide,
   updateRide,
-  deleteRide,
-  getRandomLocations
+  deleteRide
 } = require("../controllers/rideController");
-
-// GET RANDOM LOCATIONS (for demo)
-router.get("/random-locations", getRandomLocations);
 
 // CREATE
 router.post("/", createRide);
